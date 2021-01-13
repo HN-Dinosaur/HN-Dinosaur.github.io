@@ -332,11 +332,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">3</span> Minutes
+              Estimated Reading Time <span class="post-count">2</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">818</span> In Total
+              Words <span class="post-count">720</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -396,10 +396,10 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="windows下通过Github-Hexo的Blog创建"><a href="#windows下通过Github-Hexo的Blog创建" class="headerlink" title="windows下通过Github + Hexo的Blog创建"></a>windows下通过Github + Hexo的Blog创建</h1><h2 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h2><h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p><a href="https://github.com/Hunter1023/learn_Git/wiki/Git%E7%9A%84%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">Git</a></p>
+        <h2 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h2><h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p><a href="https://github.com/Hunter1023/learn_Git/wiki/Git%E7%9A%84%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">Git</a></p>
 <blockquote>
 <p> 在自己的GitHub上New一个repository</p>
-<p>![](在Windows下通过Github + Hexo 的Blog创建/new repository.png)</p>
+<p><img src="new_repository.png" alt="new_repository"></p>
 </blockquote>
 <blockquote>
 <p> Repository name 必须是GitHub用户名.github.io![](creat a new repository.png)</p>
@@ -409,7 +409,7 @@
 <h3 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h3><blockquote>
 <p> 打开Git Bash命令窗口输入,两次回车后会生成id_rsa,id_rsa.pub两个文件</p>
 </blockquote>
-<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p>![](在Windows下通过Github + Hexo 的Blog创建/Choose a cheme.png)</p>
+<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p><img src="Choose_a_cheme.png" alt="Choose_a_cheme"></p>
 <blockquote>
 <p>从repository的Setting进入 点击上图的Choose a theme</p>
 <p>进入下一个页面点击Commit changes</p>
@@ -417,8 +417,8 @@
 <h2 id="添加SSH到Github"><a href="#添加SSH到Github" class="headerlink" title="添加SSH到Github"></a>添加SSH到Github</h2><blockquote>
 <p>复制id_rsa.pub文件里的内容（全部复制），打开GitHub-Settings-SSH and GPG keys,添加SSH keys</p>
 </blockquote>
-<p>![](在Windows下通过Github + Hexo 的Blog创建/Setting SSH keys.png)</p>
-<h2 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h2><p>![](在Windows下通过Github + Hexo 的Blog创建/copy ssh.png)</p>
+<p><img src="Setting_SSH_keys.png" alt="Setting_SSH_keys"></p>
+<h2 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h2><p><img src="copy_ssh.png" alt="copy_ssh"></p>
 <blockquote>
 <p>打开之前创建的repository，点击Code，复制SSH的地址</p>
 <p>在自己的电脑硬盘随便一个位置创建一个文件夹，用来存放本地的repository</p>
@@ -440,7 +440,7 @@
 <h2 id="本地Blog文件"><a href="#本地Blog文件" class="headerlink" title="本地Blog文件"></a>本地Blog文件</h2><blockquote>
 <p>再在你的电脑上创建一个文件夹存放Blog文件，并在此文件夹空白处右键打开Git Bush输入hexo init生成如下文件</p>
 </blockquote>
-<p>![](在Windows下通过Github + Hexo 的Blog创建/local blog.png)</p>
+<p><img src="local_blog.png" alt="local_blog"></p>
 <h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><blockquote>
 <p>从本地blog文件右键空白处打开Git Bush输入</p>
 </blockquote>
@@ -451,7 +451,7 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="string">"test"</span></span><br></pre></td></tr></table></figure>
 
-<p>![](在Windows下通过Github + Hexo 的Blog创建/build md file.png)</p>
+<p><img src="build_md_file.png" alt="build_md_file"></p>
 <blockquote>
 <p>title是文章的标题，tags是标签，还可以添加categories分类，对发表的博文进行归纳整理。<br>—分割线之后的部分就是文章的内容。可用Markdown语法自由编辑。</p>
 </blockquote>
@@ -467,7 +467,7 @@
 <p>branch: [branch] #分支名字，master即可</p>
 <p>message: [message] #自定义提交信息时间（默认为当前时间）</p>
 </blockquote>
-<p>![](在Windows下通过Github + Hexo 的Blog创建/change _config.png)</p>
+<p><img src="change_config.png" alt="change_config"></p>
 <h3 id="完成部署"><a href="#完成部署" class="headerlink" title="完成部署"></a>完成部署</h3><blockquote>
 <p> 本地blog右键空白处 </p>
 <p>打开Git Bush输入完成部署</p>
@@ -480,7 +480,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -d</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>预览页面</p>
+<p><code>http://localhost:4000/</code>. 预览页面</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
 
@@ -490,8 +490,7 @@
 <h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><blockquote>
 <p>打开GitHub删除main分支稍等5min，再输入 你的GitHub用户名.github.io 为网址即可访问</p>
 </blockquote>
-<img src="在Windows下通过Github + Hexo 的Blog创建/result.png" style="zoom:50%;" />
-
+<p><img src="result.png" alt="result"></p>
 <h2 id="Have-fun"><a href="#Have-fun" class="headerlink" title="Have fun ^_^"></a>Have fun ^_^</h2><p>Please <a href="https://github.com/V-Vincen/hexo-theme-livemylife" target="_blank" rel="noopener">Star</a> this Project if you like it! <a href="https://github.com/V-Vincen" target="_blank" rel="noopener">Follow</a> would also be appreciated! Peace!</p>
 
 
@@ -631,7 +630,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#windows下通过Github-Hexo的Blog创建"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">windows下通过Github + Hexo的Blog创建</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#注册Github账号"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">注册Github账号</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Git"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">安装Git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建SSH-Key"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">创建SSH Key</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生成SSH-Key"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">生成SSH Key</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择主题"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">选择主题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加SSH到Github"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">添加SSH到Github</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建本地仓库"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">创建本地仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#从仓库直接上传文件"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">从仓库直接上传文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Node-js（建议下载二进制）"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">安装Node.js（建议下载二进制）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Hexo"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">安装Hexo</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#本地Blog文件"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">本地Blog文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#发布文章"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">发布文章</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#配置部署Hexo"><span class="toc-nav-number">1.12.</span> <span class="toc-nav-text">配置部署Hexo</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装hexo-deployer-git"><span class="toc-nav-number">1.12.1.</span> <span class="toc-nav-text">安装hexo-deployer-git</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改-config-yml"><span class="toc-nav-number">1.12.2.</span> <span class="toc-nav-text">修改_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#完成部署"><span class="toc-nav-number">1.12.3.</span> <span class="toc-nav-text">完成部署</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#上传第一个MarkDown文件"><span class="toc-nav-number">1.13.</span> <span class="toc-nav-text">上传第一个MarkDown文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#最后一步"><span class="toc-nav-number">1.14.</span> <span class="toc-nav-text">最后一步</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Have-fun"><span class="toc-nav-number">1.15.</span> <span class="toc-nav-text">Have fun ^_^</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#注册Github账号"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">注册Github账号</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Git"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装Git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建SSH-Key"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">创建SSH Key</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生成SSH-Key"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">生成SSH Key</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择主题"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">选择主题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加SSH到Github"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">添加SSH到Github</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建本地仓库"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">创建本地仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#从仓库直接上传文件"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">从仓库直接上传文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Node-js（建议下载二进制）"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">安装Node.js（建议下载二进制）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Hexo"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">安装Hexo</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#本地Blog文件"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">本地Blog文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#发布文章"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">发布文章</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#配置部署Hexo"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">配置部署Hexo</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装hexo-deployer-git"><span class="toc-nav-number">12.1.</span> <span class="toc-nav-text">安装hexo-deployer-git</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改-config-yml"><span class="toc-nav-number">12.2.</span> <span class="toc-nav-text">修改_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#完成部署"><span class="toc-nav-number">12.3.</span> <span class="toc-nav-text">完成部署</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#上传第一个MarkDown文件"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">上传第一个MarkDown文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#最后一步"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">最后一步</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Have-fun"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">Have fun ^_^</span></a></li></ol>
         
         </div>
       </aside>
