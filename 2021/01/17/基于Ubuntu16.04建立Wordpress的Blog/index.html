@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../../css/highlight.css">
-<link rel="stylesheet" href="../../css/widget.css">
-<link rel="stylesheet" href="../../css/rocket.css">
-<link rel="stylesheet" href="../../css/signature.css">
-<link rel="stylesheet" href="../../css/catalog.css">
-<link rel="stylesheet" href="../../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://blog.longdy.xyz/tags/Windows/">
+  <link rel="canonical" href="https://blog.longdy.xyz/2021/01/17/基于Ubuntu16.04建立Wordpress的Blog/">
   <title>
     
-    embrace new life
+    基于Ubuntu16.04建立Wordpress的Blog - embrace new life
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -289,8 +289,8 @@
 
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('/img/header_img/archive_bg2.jpg');
+       /*post*/
+        background-image: url('/img/header_img/lml.jpg');
       
     }
 
@@ -312,10 +312,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Gold House</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">This place is sure to help you</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
+              
+              <a class="tag" href="/tags/#Wordpress" title="Wordpress">Wordpress</a>
+              
+            </div>
+            <h1>基于Ubuntu16.04建立Wordpress的Blog</h1>
+            <h2 class="subheading">Under Ubuntu16.04 build Wordpress Blog</h2>
+            <span class="meta">
+              Posted by Dinosaur on
+              2021-01-17
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">4</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">944</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
           </div>
           
         </div>
@@ -356,323 +388,432 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>首先必须有一个自己的服务器,才能搭建Wordpress</p>
+<p>这篇文章用的是阿里云的服务器</p>
+<p>建议购买轻量应用服务器选择系统镜像Ubuntu16.04版本</p>
+<p>这边我的配置是流量1000GB/CPU1核/内存2GB/系统盘40GB</p>
+<h2 id="在虚拟机中连接云服务器"><a href="#在虚拟机中连接云服务器" class="headerlink" title="在虚拟机中连接云服务器"></a>在虚拟机中连接云服务器</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><blockquote>
+<p>在阿里云云服务器管理控制台点击远程连接</p>
+</blockquote>
+<p><img src="first_Aliyun.png" alt="first_Aliyun"></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><blockquote>
+<p>在虚拟机中通过控制台创建并下载了密钥对，且<strong>已经通过控制台重启了服务器</strong></p>
+<ol>
+<li>找到您下载的私钥所在目录，如：<code>/root/xxx.pem</code>。<br>xxx.pem 即为您的私钥文件，下同。</li>
+<li>使用以下命令修改私钥文件的属性：<code>chmod 400 xxx.pem</code>。</li>
+<li>使用 SSH 命令连接至实例（假设实例的公网 IP 地址为 10.10.10.100）：<code>ssh root@10.10.10.100 -i /root/xxx.pem</code>。</li>
+</ol>
+</blockquote>
+<h2 id="准备LAMP环境"><a href="#准备LAMP环境" class="headerlink" title="准备LAMP环境"></a>准备LAMP环境</h2><blockquote>
+<p>LAMP 是 Linux、Apache、MySQL 和 PHP 的缩写，是 Wordpress 系统依赖的基础运行环境。我们先来准备 LAMP 环境：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su root</span><br></pre></td></tr></table></figure>
 
-      
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
+<blockquote>
+<p>切换至root账号</p>
+</blockquote>
+<p><img src="third_Aliyun.png" alt="third_Aliyun"></p>
+<h3 id="安装-Apache2"><a href="#安装-Apache2" class="headerlink" title="安装 Apache2"></a>安装 Apache2</h3><p><img src="sudo.png" alt="sudo"></p>
+<blockquote>
+<p><strong>如果在后续命令行中出现上述情况,将sudo去掉即可</strong></p>
+</blockquote>
+<blockquote>
+<p>在终端输入该命令 ，使用 <code>apt-get</code> 安装 Apache2：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2 -y</span><br></pre></td></tr></table></figure>
 
-      
+<blockquote>
+<p>这里可能会出现更新问题</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get undate</span><br></pre></td></tr></table></figure>
 
-      <!-- 归档列表 -->
+<blockquote>
+<p>再输入</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2 -y</span><br></pre></td></tr></table></figure>
 
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-          <span class="tag-text">2021</span>
-        </span>
-        <ul>
+<blockquote>
+<p>安装好后，您可以通过访问实验室IP地址 [http://&lt;您的 CVM IP 地址&gt;](<a href="http://xn--" target="_blank" rel="noopener">http://xn--</a>&lt; cvm ip -sd04ayi737nv69f/) 查看到 “it works” 界面，说明 apache2 安装成功。</p>
+</blockquote>
+<p><img src="fourth_Aliyun.png" alt="fourth_Aliyun"></p>
+<h3 id="安装-PHP-组件"><a href="#安装-PHP-组件" class="headerlink" title="安装 PHP 组件"></a>安装 PHP 组件</h3><blockquote>
+<p>apt-get 里有 php7.0 ，所以我们可以直接安装 php7.0 ：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php7<span class="number">.0</span> -y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>安装 php 相关组件：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libapache2-mod-php7<span class="number">.0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-MySQL-服务"><a href="#安装-MySQL-服务" class="headerlink" title="安装 MySQL 服务"></a>安装 MySQL 服务</h3><blockquote>
+<p>安装 MySQL 过程中，控制台会提示您输入 MySQL 的密码，您需要输入两次密码，并记住您输入的密码，后续步骤需要用到：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server -y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>安装 php MySQL相关组件：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php7<span class="number">.0</span>-mysql</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-phpmyadmin"><a href="#安装-phpmyadmin" class="headerlink" title="安装 phpmyadmin"></a>安装 phpmyadmin</h3><blockquote>
+<p>使用 <code>apt-get</code> 安装 phpmyadmin，安装过程中，您需要根据提示选择 apache2 ，再输入root密码 和数据库密码：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install phpmyadmin -y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建立 <code>/var/www/html</code> 下的软连接：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/share/phpmyadmin /<span class="keyword">var</span>/www/html/phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重启 MySQL 服务</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重启 Apache 服务：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart apache2.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装并配置-Wordpress"><a href="#安装并配置-Wordpress" class="headerlink" title="安装并配置 Wordpress"></a>安装并配置 Wordpress</h2><h3 id="安装-Wordpress"><a href="#安装-Wordpress" class="headerlink" title="安装 Wordpress"></a>安装 Wordpress</h3><blockquote>
+<p>我们需要下载一个 Wordpress 压缩包：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="comment">//labs-1253675457.cos.ap-guangzhou.myqcloud.com/wordpress-4.7.4-zh_CN.zip</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>下载完成后，解压这个压缩包</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo unzip wordpress-<span class="number">4.7</span><span class="number">.4</span>-zh_CN.zip</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果上述命令行出现问题</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install unzip</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>再输入</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo unzip wordpress-<span class="number">4.7</span><span class="number">.4</span>-zh_CN.zip</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解压完后，就能在 <em>Wordpress</em> 文件夹里看到 Wordpress 的源码了</p>
+</blockquote>
+<h3 id="为-wordpress-配置一个数据库"><a href="#为-wordpress-配置一个数据库" class="headerlink" title="为 wordpress 配置一个数据库"></a>为 wordpress 配置一个数据库</h3><blockquote>
+<p>进入 mysql，输入以下代码后，按提示输入您MySQL密码:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为 wordpress 创建一个叫 wordpress 的数据库：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE wordpress;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为 这个数据库设置一个用户为 wordpressuser：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER wordpressuser;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为这个用户配置一个密码为 password123：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PASSWORD FOR wordpressuser= PASSWORD(<span class="string">"password123"</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为这个用户配置数据库的访问权限：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser IDENTIFIED BY<span class="string">"password123"</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>生效这些配置</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>然后退出 mysql</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-wordpress"><a href="#配置-wordpress" class="headerlink" title="配置 wordpress"></a>配置 wordpress</h3><blockquote>
+<p>由于PHP默认访问 <em>/var/www/html/</em> 文件夹，所以我们需要把 wordpress 文件夹里的文件都复制到 <em>/var/www/html/</em> 文件夹</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv wordpress<span class="comment">/* /var/www/html/</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改一下 /var/www/html/ 目录权限：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R <span class="number">777</span> /<span class="keyword">var</span>/www/html/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将apache指定到index.html</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /<span class="keyword">var</span>/www/html/index.html /<span class="keyword">var</span>/www/html/index~.html</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重启 Apache 服务：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart apache2.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试访问"><a href="#测试访问" class="headerlink" title="测试访问"></a>测试访问</h3><blockquote>
+<ul>
+<li>Web 安装界面：[http://&lt;您的 CVM IP 地址&gt;](<a href="http://xn--" target="_blank" rel="noopener">http://xn--</a>&lt; cvm ip -sd04ayi737nv69f/)</li>
+<li>博客访问地址：[http://&lt;您的 CVM IP 地址&gt;](<a href="http://xn--" target="_blank" rel="noopener">http://xn--</a>&lt; cvm ip -sd04ayi737nv69f/)</li>
+</ul>
+</blockquote>
+<p><img src="finally.png" alt="finally"></p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/17/基于Ubuntu16.04建立Wordpress的Blog/" style="color: #0085a1">
-              <span>
-                基于Ubuntu16.04建立Wordpress的Blog
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/17/在VMware上简单Ubuntu16.04/" style="color: #0085a1">
-              <span>
-                在VMware上安装Ubuntu16.04
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/13/在Windows下通过Github + Hexo 的Blog创建/" style="color: #0085a1">
-              <span>
-                windows下通过Github + Hexo的Blog创建
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-12
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/12/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+          <li class="next">
+            <a href="/2021/01/17/在VMware上简单Ubuntu16.04/" data-toggle="tooltip" data-placement="top" title="在VMware上安装Ubuntu16.04">Next Post &rarr;</a>
           </li>
           
         </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=基于Ubuntu16.04建立Wordpress的Blog&body=Hi,I found this website and thought you might like it https://blog.longdy.xyz/2021/01/17/基于Ubuntu16.04建立Wordpress的Blog/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: '',
+    id: 'Sun Jan 17 2021 18:02:20 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'en'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
-      
 
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
     
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
         
-<!-- <h5>VISITORS</h5> -->
-<h5><a href="/">VISITORS</a></h5>
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#前提"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前提</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#在虚拟机中连接云服务器"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">在虚拟机中连接云服务器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法一"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">方法一</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法二"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">方法二</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#准备LAMP环境"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">准备LAMP环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-Apache2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">安装 Apache2</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-PHP-组件"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">安装 PHP 组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-MySQL-服务"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">安装 MySQL 服务</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-phpmyadmin"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">安装 phpmyadmin</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装并配置-Wordpress"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">安装并配置 Wordpress</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-Wordpress"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">安装 Wordpress</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#为-wordpress-配置一个数据库"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">为 wordpress 配置一个数据库</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置-wordpress"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">配置 wordpress</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#测试访问"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">测试访问</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
     
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
-
-<section>
-  <!-- no hr -->
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#Hexo" title="Hexo" rel="2">Hexo</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="1">Hexo-Theme-LiveMyLife</a>
-    
-    
-    
-    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a>
-    
-    
-    
-    <a href="/tags/#Ubuntu" title="Ubuntu" rel="2">Ubuntu</a>
-    
-    
-    
-    <a href="/tags/#VMware" title="VMware" rel="1">VMware</a>
-    
-    
-    
-    <a href="/tags/#Wordpress" title="Wordpress" rel="1">Wordpress</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/roguerabbit.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Just a programmer</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/HN-Dinosaur">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/Dinosaur_L">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
         
-<!-- <h5>RECENT POSTS</h5> -->
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../2021/01/17/%E5%9F%BA%E4%BA%8EUbuntu16.04%E5%BB%BA%E7%AB%8BWordpress%E7%9A%84Blog/">
-      <li>基于Ubuntu16.04建立Wordpress的Blog</li>
-    </a>
-    
-    <a href="../../2021/01/17/%E5%9C%A8VMware%E4%B8%8A%E7%AE%80%E5%8D%95Ubuntu16.04/">
-      <li>在VMware上安装Ubuntu16.04</li>
-    </a>
-    
-    <a href="../../2021/01/13/%E5%9C%A8Windows%E4%B8%8B%E9%80%9A%E8%BF%87Github%20+%20Hexo%20%E7%9A%84Blog%E5%88%9B%E5%BB%BA/">
-      <li>windows下通过Github + Hexo的Blog创建</li>
-    </a>
-    
-    <a href="../../2021/01/12/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
+            
+            <a class="tag" href="/tags/#Wordpress" title="Wordpress">Wordpress</a>
+            
+          </div>
+        </section>
+        
 
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<!-- <h5>FRIENDS</h5> -->
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://blog.longdy.xyz/" target="_blank">Dinosaur</a></li>
-  
-  <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
-  
-  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
-        <hr>
-    
         
-    <!-- <h5>ARCHIVES</h5> -->
-    <h5><a href="/archives/">ARCHIVES</a></h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">一月 2021</a><span class="archive-list-count">4</span></li></ul>
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://blog.longdy.xyz/" target="_blank">Dinosaur</a>
+          </li>
+          
+          <li>
+            <a href="http://beantech.org" target="_blank">Bean Tech</a>
+          </li>
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
     </div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<!-- <h5>categories</h5> -->
-<h5><a href="/categories/">CATEGORIES</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-    <a href="/categories/#Hexo">
-      <li>Hexo</li>
-    </a>
-    
-    <a href="/categories/#VMware build Ubuntu16.04">
-      <li>VMware build Ubuntu16.04</li>
-    </a>
-    
-    <a href="/categories/#Wordpress">
-      <li>Wordpress</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-    
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->

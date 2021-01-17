@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../../css/highlight.css">
-<link rel="stylesheet" href="../../css/widget.css">
-<link rel="stylesheet" href="../../css/rocket.css">
-<link rel="stylesheet" href="../../css/signature.css">
-<link rel="stylesheet" href="../../css/catalog.css">
-<link rel="stylesheet" href="../../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://blog.longdy.xyz/tags/Windows/">
+  <link rel="canonical" href="https://blog.longdy.xyz/2021/01/17/在VMware上简单Ubuntu16.04/">
   <title>
     
-    embrace new life
+    在VMware上安装Ubuntu16.04 - embrace new life
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -289,8 +289,8 @@
 
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('/img/header_img/archive_bg2.jpg');
+       /*post*/
+        background-image: url('/img/header_img/lml.jpg');
       
     }
 
@@ -312,10 +312,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Gold House</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">This place is sure to help you</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+            </div>
+            <h1>在VMware上安装Ubuntu16.04</h1>
+            <h2 class="subheading">VMware build Ubuntu16.04</h2>
+            <span class="meta">
+              Posted by Dinosaur on
+              2021-01-17
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">1</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">281</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
           </div>
           
         </div>
@@ -356,323 +388,374 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="下载VMware-workplace"><a href="#下载VMware-workplace" class="headerlink" title="下载VMware workplace"></a>下载VMware workplace</h3><blockquote>
+<p>可以的话最好下载VMware workplace pro</p>
+<p><a href="http://www.zhanshaoyi.com/15261.html" target="_blank" rel="noopener">http://www.zhanshaoyi.com/15261.html</a></p>
+</blockquote>
+<h3 id="下载Ubuntu16-04版本iso文件"><a href="#下载Ubuntu16-04版本iso文件" class="headerlink" title="下载Ubuntu16.04版本iso文件"></a>下载Ubuntu16.04版本iso文件</h3><blockquote>
+<p>中科大源</p>
+<p><a href="http://mirrors.ustc.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/ubuntu-releases/16.04/</a></p>
+<p>阿里云开源镜像站</p>
+<p><a href="http://mirrors.aliyun.com/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu-releases/16.04/</a></p>
+<p>兰州大学开源镜像站</p>
+<p><a href="http://mirror.lzu.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirror.lzu.edu.cn/ubuntu-releases/16.04/</a></p>
+<p>北京理工大学开源</p>
+<p><a href="http://mirror.bit.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirror.bit.edu.cn/ubuntu-releases/16.04/</a></p>
+</blockquote>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="安装VMware-workstation-pro"><a href="#安装VMware-workstation-pro" class="headerlink" title="安装VMware workstation pro"></a>安装VMware workstation pro</h3><p><img src="first_vm.png" alt="first_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="second_vm.png" alt="second_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="third_vm.png" alt="third_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="fourth_vm.png" alt="fourth_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="fifth_vm.png" alt="fifth_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="sixth_vm.png" alt="sixth_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="seventh_vm.png" alt="seventh_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="eigth_vm.png" alt="eigth_vm"></p>
+<blockquote>
+<p>选择NAT  使虚拟机连接外部网络</p>
+<p>下一步</p>
+</blockquote>
+<p><img src="ninth_vm.png" alt="ninth_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="tenth_vm.png" alt="tenth_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="eleventh_vm.png" alt="eleventh_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="twelve_vm.png" alt="twelve_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="thirteen_vm.png" alt="thirteen_vm"></p>
+<blockquote>
+<p>下一步</p>
+</blockquote>
+<p><img src="fourthteen_vm.png" alt="fourthteen_vm"></p>
+<blockquote>
+<p>完成</p>
+</blockquote>
+<p><img src="fifthteen_vm.png" alt="fifthteen_vm"></p>
+<blockquote>
+<p>编辑虚拟机设置</p>
+<p>点击CD/DVD (SATA)  使用ISO映像文件(M):</p>
+<p>选择你下载的Ubuntu16.04.iso文件</p>
+</blockquote>
+<h3 id="安装-Ubuntu16-04"><a href="#安装-Ubuntu16-04" class="headerlink" title="安装 Ubuntu16.04"></a>安装 Ubuntu16.04</h3><p><img src="first_Ubuntu.png" alt="first_Ubuntu"></p>
+<blockquote>
+<p>选择Install Ubuntu</p>
+</blockquote>
+<p><img src="second_Ubuntu.png" alt="second_Ubuntu"></p>
+<blockquote>
+<p>勾选Download updates while installing Ubuntu</p>
+</blockquote>
+<p><img src="third_Ubuntu.png" alt="third_Ubuntu"></p>
+<blockquote>
+<p>选择Erase disk and install Ubuntu</p>
+</blockquote>
+<p><img src="fourth_Ubuntu.png" alt="fourth_Ubuntu"></p>
+<blockquote>
+<p>continue</p>
+</blockquote>
+<p><img src="fifth_Ubuntu.png" alt="fifth_Ubuntu"></p>
+<blockquote>
+<p>随意点击中国一块区域,再点击continue</p>
+</blockquote>
+<p><img src="sixth_Ubuntu.png" alt="sixth_Ubuntu"></p>
+<blockquote>
+<p>仅检测键盘是否可用  点击continue</p>
+</blockquote>
+<p><img src="seventh_Ubuntu.png" alt="seventh_Ubuntu"></p>
+<blockquote>
+<p>输入你的信息建立用户  <em>记住密码</em>   点击continue</p>
+</blockquote>
+<p><img src="eighth_Ubuntu.png" alt="eighth_Ubuntu"></p>
+<blockquote>
+<p>等待20-30min</p>
+</blockquote>
+<h2 id="Congratulations"><a href="#Congratulations" class="headerlink" title="Congratulations!"></a>Congratulations!</h2><p>You have been succussfully create your own virtual Machines!</p>
+<p>If you want to create your own Wordpress Blog, please read my next blog!</p>
 
-      
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-          <span class="tag-text">2021</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/17/基于Ubuntu16.04建立Wordpress的Blog/" style="color: #0085a1">
-              <span>
-                基于Ubuntu16.04建立Wordpress的Blog
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+          <li class="previous">
+            <a href="/2021/01/17/基于Ubuntu16.04建立Wordpress的Blog/" data-toggle="tooltip" data-placement="top" title="基于Ubuntu16.04建立Wordpress的Blog">&larr; Previous Post</a>
           </li>
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/17/在VMware上简单Ubuntu16.04/" style="color: #0085a1">
-              <span>
-                在VMware上安装Ubuntu16.04
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/13/在Windows下通过Github + Hexo 的Blog创建/" style="color: #0085a1">
-              <span>
-                windows下通过Github + Hexo的Blog创建
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            01-12
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/01/12/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+          <li class="next">
+            <a href="/2021/01/13/在Windows下通过Github + Hexo 的Blog创建/" data-toggle="tooltip" data-placement="top" title="windows下通过Github + Hexo的Blog创建">Next Post &rarr;</a>
           </li>
           
         </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=在VMware上安装Ubuntu16.04&body=Hi,I found this website and thought you might like it https://blog.longdy.xyz/2021/01/17/在VMware上简单Ubuntu16.04/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: '',
+    id: 'Sun Jan 17 2021 15:49:12 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'en'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
-      
 
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
     
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
         
-<!-- <h5>VISITORS</h5> -->
-<h5><a href="/">VISITORS</a></h5>
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#准备"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">准备</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#下载VMware-workplace"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">下载VMware workplace</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#下载Ubuntu16-04版本iso文件"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">下载Ubuntu16.04版本iso文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#开始"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">开始</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装VMware-workstation-pro"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">安装VMware workstation pro</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装-Ubuntu16-04"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">安装 Ubuntu16.04</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Congratulations"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Congratulations!</span></a></li></ol>
+        
+        </div>
+      </aside>
     
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
-
-<section>
-  <!-- no hr -->
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#Hexo" title="Hexo" rel="2">Hexo</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="1">Hexo-Theme-LiveMyLife</a>
-    
-    
-    
-    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a>
-    
-    
-    
-    <a href="/tags/#Ubuntu" title="Ubuntu" rel="2">Ubuntu</a>
-    
-    
-    
-    <a href="/tags/#VMware" title="VMware" rel="1">VMware</a>
-    
-    
-    
-    <a href="/tags/#Wordpress" title="Wordpress" rel="1">Wordpress</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/roguerabbit.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Just a programmer</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/HN-Dinosaur">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/Dinosaur_L">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
         
-<!-- <h5>RECENT POSTS</h5> -->
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../2021/01/17/%E5%9F%BA%E4%BA%8EUbuntu16.04%E5%BB%BA%E7%AB%8BWordpress%E7%9A%84Blog/">
-      <li>基于Ubuntu16.04建立Wordpress的Blog</li>
-    </a>
-    
-    <a href="../../2021/01/17/%E5%9C%A8VMware%E4%B8%8A%E7%AE%80%E5%8D%95Ubuntu16.04/">
-      <li>在VMware上安装Ubuntu16.04</li>
-    </a>
-    
-    <a href="../../2021/01/13/%E5%9C%A8Windows%E4%B8%8B%E9%80%9A%E8%BF%87Github%20+%20Hexo%20%E7%9A%84Blog%E5%88%9B%E5%BB%BA/">
-      <li>windows下通过Github + Hexo的Blog创建</li>
-    </a>
-    
-    <a href="../../2021/01/12/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+          </div>
+        </section>
+        
 
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<!-- <h5>FRIENDS</h5> -->
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://blog.longdy.xyz/" target="_blank">Dinosaur</a></li>
-  
-  <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
-  
-  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
-        <hr>
-    
         
-    <!-- <h5>ARCHIVES</h5> -->
-    <h5><a href="/archives/">ARCHIVES</a></h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">一月 2021</a><span class="archive-list-count">4</span></li></ul>
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://blog.longdy.xyz/" target="_blank">Dinosaur</a>
+          </li>
+          
+          <li>
+            <a href="http://beantech.org" target="_blank">Bean Tech</a>
+          </li>
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
     </div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<!-- <h5>categories</h5> -->
-<h5><a href="/categories/">CATEGORIES</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-    <a href="/categories/#Hexo">
-      <li>Hexo</li>
-    </a>
-    
-    <a href="/categories/#VMware build Ubuntu16.04">
-      <li>VMware build Ubuntu16.04</li>
-    </a>
-    
-    <a href="/categories/#Wordpress">
-      <li>Wordpress</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-    
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
