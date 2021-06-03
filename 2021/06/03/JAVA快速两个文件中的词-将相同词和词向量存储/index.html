@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://blog.longdy.xyz/2021/01/13/在Windows下通过Github + Hexo 的Blog创建/">
+  <link rel="canonical" href="https://blog.longdy.xyz/2021/06/03/JAVA快速两个文件中的词-将相同词和词向量存储/">
   <title>
     
-    windows下通过Github + Hexo的Blog创建 - Embrace new life
+    JAVA快速两个文件中的词-将相同词和词向量存储 - Embrace new life
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -315,16 +315,14 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
-              
-              <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+              <a class="tag" href="/tags/#Java文件处理" title="Java文件处理">Java文件处理</a>
               
             </div>
-            <h1>windows下通过Github + Hexo的Blog创建</h1>
-            <h2 class="subheading">Under Windows build Hexo environment</h2>
+            <h1>JAVA快速两个文件中的词-将相同词和词向量存储</h1>
+            <h2 class="subheading">Java文件处理</h2>
             <span class="meta">
               Posted by Dinosaur on
-              2021-01-13
+              2021-06-03
             </span>
 
 
@@ -332,11 +330,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">2</span> Minutes
+              Estimated Reading Time <span class="post-count">6</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">721</span> In Total
+              Words <span class="post-count">1.5k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -396,120 +394,51 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="注册Github账号"><a href="#注册Github账号" class="headerlink" title="注册Github账号"></a>注册Github账号</h2><h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p><a href="https://github.com/Hunter1023/learn_Git/wiki/Git%E7%9A%84%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">Git</a></p>
-<h2 id="New-repository"><a href="#New-repository" class="headerlink" title="New repository"></a>New repository</h2><p><img src="new_repository.png" alt="new_repository"></p>
-<blockquote>
-<p> 在自己的GitHub上New一个repository</p>
-</blockquote>
-<p><img src="creat_a_new_repository.png" alt="creat_a_new_repository"></p>
-<blockquote>
-<p> Repository name 必须是GitHub用户名.github.io</p>
-</blockquote>
-<h2 id="创建SSH-Key"><a href="#创建SSH-Key" class="headerlink" title="创建SSH Key"></a>创建SSH Key</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure>
+        <h1 id="JAVA快速两个文件中的词-将相同词和词向量存储"><a href="#JAVA快速两个文件中的词-将相同词和词向量存储" class="headerlink" title="JAVA快速两个文件中的词-将相同词和词向量存储"></a>JAVA快速两个文件中的词-将相同词和词向量存储</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>大文件–16G腾讯做自然语言处理的文件</p>
+<p>小文件–随便一个不到1G的词云文件</p>
+<p>大文件的内容大致是每一行开头一个词+词向量  空格相隔</p>
+<p>小文件就是[“xx”,”yiy”]词的数组</p>
+<p>将大文件的内容和小文件中的词进行比较，如果相同则将大文件的词和词向量记录，最后总的进行存储入另外一个文件中</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.读取</p>
+<p>2.比较</p>
+<p>3.存储</p>
+<p>大致就是以上几个步骤了，但是实际做起来得费不少劲，我从2021-4-30下午开始阅读题目，直到2021-5-3早晨才彻底解决</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>1.JVM中out of heap</p>
+<p>我一开始想的是，将大文件中的数据读取出来，存储在HashMap里面，但是在取出来的过程中，程序报错，经过查询，是超过JVM里的内存大小了，我想着扩大JVM内存，最大就只能改到4G，果断放弃这个方法。</p>
+<p>2.怎么快速读取</p>
+<p>我通过搜索，我找到网络上有几个方法，有I/O还有NIO读取，经过试验，大致基本都相同。这里我用的是BufferedReader来进行大文件的一行一行读取</p>
+<p>3.怎么快速存储</p>
+<p>拿的HashMap存储结构，还有ArrayList，StringBuilder，HashMap比较最快，ArrayList遍历最快，StringBuilder做字符串存储最快</p>
+<p>4.单线程还是多线程进行操作？</p>
+<p>这里我尝试过TheadPool来多线程处理，可是电脑给跑关机了…</p>
+<p>5.字符串处理</p>
+<p>两种方式处理吧，第一个是正则表达式，第二个是内置的字符串方法</p>
+<p>6.什么遍历方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历Map</span></span><br><span class="line"><span class="keyword">for</span>(Map.Entry&lt;String, Boolean&gt; map: smallMap.entrySet()) &#123;</span><br><span class="line">				<span class="comment">//找不到</span></span><br><span class="line">				<span class="keyword">if</span>(!map.getValue()) &#123;</span><br><span class="line">					unknowedStr.append(map.getKey() + <span class="string">"\n"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="comment">//遍历ArrayList</span></span><br><span class="line">  <span class="keyword">for</span>(String str: arrayToMap) &#123;</span><br><span class="line">                	smallMap.put(str, <span class="keyword">false</span>);</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h3><blockquote>
-<p> 打开Git Bash命令窗口输入,两次回车后会生成id_rsa,id_rsa.pub两个文件</p>
-</blockquote>
-<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p><img src="Choose_a_cheme.png" alt="Choose_a_cheme"></p>
-<blockquote>
-<p>从repository的Setting进入 点击上图的Choose a theme</p>
-<p>进入下一个页面点击Commit changes</p>
-</blockquote>
-<h2 id="添加SSH到Github"><a href="#添加SSH到Github" class="headerlink" title="添加SSH到Github"></a>添加SSH到Github</h2><blockquote>
-<p>复制id_rsa.pub文件里的内容（全部复制），打开GitHub-Settings-SSH and GPG keys,添加SSH keys</p>
-</blockquote>
-<p><img src="Setting_SSH_keys.png" alt="Setting_SSH_keys"></p>
-<h2 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h2><p><img src="copy_ssh.png" alt="copy_ssh"></p>
-<blockquote>
-<p>打开之前创建的repository，点击Code，复制SSH的地址</p>
-<p>在自己的电脑硬盘随便一个位置创建一个文件夹，用来存放本地的repository</p>
-<p>在自己的电脑本地的repository的文件夹下，鼠标右键点击空白处，选择Git Bush 输入 Git Clone + SSH的地址，将仓库内容复制到本地</p>
-</blockquote>
-<h2 id="从仓库直接上传文件"><a href="#从仓库直接上传文件" class="headerlink" title="从仓库直接上传文件"></a>从仓库直接上传文件</h2><blockquote>
-<p>在repository根目录下写一个简单的html文件,右键空白出打开Git Bush输入</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit</span><br><span class="line">$ git push</span><br></pre></td></tr></table></figure>
+<p>7.局部变量和全局变量</p>
+<p>局部变量和全局变量同名闹了一些乌龙，费了半天的劲，突然看到变量的颜色不同才发现问题，建议大家在进行变量命名时，第一命名有意义，第二全局变量前面加一个_</p>
+<p>8.序列化和非序列化存储</p>
+<p>一开始以为序列化存储会对存储的时间进行压缩，最后发现存储的时间压根不是主要，比较才是主要，最后不用序列化，拿的是BufferWritter进行文件的存储</p>
+<p>9.比较相等时的存储字符串类型</p>
+<p>如果拿String来进行结果的存储的话，基本类型String的每次操作都是重新构建String数据类型，这样的话就会很慢，我这里拿的是StringBuilder来进行存储</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>目前的结果是91s，希望未来有机会对这个项目进行改进</p>
+<p><img src="Successful.png" alt="Successful"></p>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>1.多线程</p>
+<p>使用RandomAccess—，—忘了是什么方法了，1个月前写的项目，那会到现在之间事太多了，直到现在才有时间把过程、感想在这说道说道</p>
+<p>2.网络</p>
+<p>通过服务器、客户端之间的调用，将一个文件进行拆分，分配给各个处理机，最后传回给服务器</p>
+<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> MultiThreadFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Finally</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> Map&lt;String, Boolean&gt; smallMap = <span class="keyword">new</span> HashMap&lt;String, Boolean&gt;();</span><br><span class="line">	<span class="keyword">static</span> ArrayList&lt;String&gt; arrayToMap = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">	<span class="keyword">static</span> StringBuilder knowedStr = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	<span class="keyword">static</span> StringBuilder unknowedStr = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Start"</span>);</span><br><span class="line">    	getCurrentTime();</span><br><span class="line">    	<span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">    	</span><br><span class="line">		Finally.getMap(ReadFile.smallFile);</span><br><span class="line">		Finally.compare();</span><br><span class="line">			</span><br><span class="line">		Finally.writeKnowedStrFile();</span><br><span class="line">		Finally.writeUnknowedStrFile();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	    System.out.println(<span class="string">"OVER ALL"</span>);</span><br><span class="line">        getCurrentTime();</span><br><span class="line">        System.out.println(<span class="string">"ALL needed : "</span> + (System.currentTimeMillis() - start) + <span class="string">"ms"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getMap</span><span class="params">(String file)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123; </span><br><span class="line">	    	</span><br><span class="line">            BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(file)));<span class="comment">//字符输入流化 </span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">            	System.out.println(<span class="string">"Start get smallTXT"</span>);</span><br><span class="line">            	getCurrentTime();</span><br><span class="line">            	<span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">                String s = <span class="keyword">new</span> String();</span><br><span class="line">                <span class="keyword">while</span> ((s = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    String newString = s.replaceAll(<span class="string">"\""</span>, <span class="string">""</span>);</span><br><span class="line">                    newString = newString.replaceAll(<span class="string">" "</span>, <span class="string">""</span>);</span><br><span class="line">                	arrayToMap = <span class="keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(newString.substring(<span class="number">1</span>, newString.lastIndexOf(<span class="string">"]"</span>)).split(<span class="string">","</span>)));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span>(String str: arrayToMap) &#123;</span><br><span class="line">                	smallMap.put(str, <span class="keyword">false</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                br.close();<span class="comment">//关闭输入流</span></span><br><span class="line">                System.out.println(<span class="string">"Over get smallTXT"</span>);</span><br><span class="line">            	getCurrentTime();</span><br><span class="line">            	System.out.println(<span class="string">"SmallTXT needed : "</span> + (System.currentTimeMillis() - start) + <span class="string">"ms"</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; </span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123; </span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"Start get compare"</span>);</span><br><span class="line">        	getCurrentTime();</span><br><span class="line">        	<span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line"> 	</span><br><span class="line">        	BufferedReader bufferRead = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(ReadFile.bigFile)));<span class="comment">//字符输入流化 </span></span><br><span class="line">		    String s = <span class="keyword">new</span> String();</span><br><span class="line">		    <span class="comment">//循环的读取一行一行读取文件，直到最后一行为空停止</span></span><br><span class="line">		    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> ((s = bufferRead.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            	<span class="keyword">if</span>(smallMap.containsKey((String)s.subSequence(<span class="number">0</span>, s.indexOf(<span class="string">" "</span>)))) &#123;</span><br><span class="line"><span class="comment">//            		knowedStr += s + "\n";</span></span><br><span class="line">            		knowedStr.append(s + <span class="string">"\n"</span>);</span><br><span class="line">             		smallMap.put((String) s.subSequence(<span class="number">0</span>, s.indexOf(<span class="string">" "</span>)), <span class="keyword">true</span>);</span><br><span class="line">             	&#125;</span><br><span class="line"><span class="comment">//            	System.out.println(count++);</span></span><br><span class="line">            	count++;</span><br><span class="line">             &#125;</span><br><span class="line">             bufferRead.close();<span class="comment">//关闭输入流</span></span><br><span class="line">            System.out.println(<span class="string">"Over compare"</span>);</span><br><span class="line">         	getCurrentTime();</span><br><span class="line">         	System.out.println(<span class="string">"Compare "</span> + count + <span class="string">" needed : "</span> + (System.currentTimeMillis() - start) + <span class="string">"ms"</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(FileNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeKnowedStrFile</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"Begin write knowedStr.txt"</span>);</span><br><span class="line">			getCurrentTime();</span><br><span class="line">			<span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">	    	BufferedWriter knowedStrBuffered = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(<span class="string">"knowedStr.txt"</span>));</span><br><span class="line">	    	knowedStrBuffered.write(knowedStr.toString());</span><br><span class="line">	    	knowedStrBuffered.close();</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"Over write knowedStr.txt"</span>);</span><br><span class="line">         	getCurrentTime();</span><br><span class="line">         	System.out.println(<span class="string">"write knowedStr.txt needed : "</span> + (System.currentTimeMillis() - start) + <span class="string">"ms"</span>);</span><br><span class="line"></span><br><span class="line">	    	</span><br><span class="line">		&#125;<span class="keyword">catch</span>(FileNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeUnknowedStrFile</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"Begin write unknowedStr.txt"</span>);</span><br><span class="line">			getCurrentTime();</span><br><span class="line">			<span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">			<span class="keyword">for</span>(Map.Entry&lt;String, Boolean&gt; map: smallMap.entrySet()) &#123;</span><br><span class="line">				<span class="comment">//找不到</span></span><br><span class="line">				<span class="keyword">if</span>(!map.getValue()) &#123;</span><br><span class="line">					unknowedStr.append(map.getKey() + <span class="string">"\n"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">	    	BufferedWriter unknowedStrBuffered = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(<span class="string">"unknowedStr.txt"</span>));</span><br><span class="line">	    	unknowedStrBuffered.write(unknowedStr.toString());</span><br><span class="line">	    	unknowedStrBuffered.close();</span><br><span class="line">            System.out.println(<span class="string">"Over write unknowedStr.txt"</span>);</span><br><span class="line">         	getCurrentTime();</span><br><span class="line">         	System.out.println(<span class="string">"write unknowedStr.txt needed : "</span> + (System.currentTimeMillis() - start) + <span class="string">"ms"</span>);</span><br><span class="line"></span><br><span class="line">		&#125;<span class="keyword">catch</span>(FileNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getCurrentTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat();<span class="comment">// 格式化时间 </span></span><br><span class="line">        sdf.applyPattern(<span class="string">"yyyy-MM-dd HH:mm:ss a"</span>);<span class="comment">// a为am/pm的标记  </span></span><br><span class="line">        Date date = <span class="keyword">new</span> Date();<span class="comment">// 获取当前时间 </span></span><br><span class="line">        System.out.println(<span class="string">"现在时间："</span> + sdf.format(date)); <span class="comment">// 输出已经格式化的现在时间（24小时制） </span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>直接上传此html文件</p>
-</blockquote>
-<h2 id="安装Node-js（建议下载二进制）"><a href="#安装Node-js（建议下载二进制）" class="headerlink" title="安装Node.js（建议下载二进制）"></a>安装Node.js（建议下载二进制）</h2><p><a href="https://blog.csdn.net/weixin_39345384/article/details/80097858#t1" target="_blank" rel="noopener">Node.js</a></p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p><a href="https://blog.csdn.net/weixin_39345384/article/details/80098228#t2" target="_blank" rel="noopener">Hexo</a></p>
-<blockquote>
-<p>后面的步骤的意思大致是以Hexo为框架搭建，最后展示形式在Github Pages上边</p>
-</blockquote>
-<h2 id="本地Blog文件"><a href="#本地Blog文件" class="headerlink" title="本地Blog文件"></a>本地Blog文件</h2><blockquote>
-<p>再在你的电脑上创建一个文件夹存放Blog文件，并在此文件夹空白处右键打开Git Bush输入hexo init生成如下文件</p>
-</blockquote>
-<p><img src="local_blog.png" alt="local_blog"></p>
-<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><blockquote>
-<p>从本地blog文件右键空白处打开Git Bush输入</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。根据不同的布局，会在不同的路径下生成<code>title.md</code>文件。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="string">"test"</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="build_md_file.png" alt="build_md_file"></p>
-<blockquote>
-<p>title是文章的标题，tags是标签，还可以添加categories分类，对发表的博文进行归纳整理。<br>—分割线之后的部分就是文章的内容。可用Markdown语法自由编辑。</p>
-</blockquote>
-<h2 id="配置部署Hexo"><a href="#配置部署Hexo" class="headerlink" title="配置部署Hexo"></a>配置部署Hexo</h2><h3 id="安装hexo-deployer-git"><a href="#安装hexo-deployer-git" class="headerlink" title="安装hexo-deployer-git"></a>安装hexo-deployer-git</h3><blockquote>
-<p> 直接打开Git Bush</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h3><blockquote>
-<p>修改你电脑本地blog文件中_config.yml文档中deploy的配置指定位置如下图</p>
-</blockquote>
-<p><img src="change_config.png" alt="change_config"></p>
-<blockquote>
-<p>type: git # git方式部署</p>
-<p>repo: <repository url> # repository地址，即GitHub用户名.github.io库的SSH地址</p>
-<p>branch: [branch] #分支名字，master即可</p>
-<p>message: [message] #自定义提交信息时间（默认为当前时间）</p>
-</blockquote>
-<h3 id="完成部署"><a href="#完成部署" class="headerlink" title="完成部署"></a>完成部署</h3><blockquote>
-<p> 本地blog右键空白处 </p>
-<p>打开Git Bush输入完成部署</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<h2 id="上传第一个MarkDown文件"><a href="#上传第一个MarkDown文件" class="headerlink" title="上传第一个MarkDown文件"></a>上传第一个MarkDown文件</h2><blockquote>
-<p> 本地Blog文件夹右键打开Git Bush</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -d</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><code>http://localhost:4000/</code>. 预览页面</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>生成静态文件</p>
-</blockquote>
-<h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><blockquote>
-<p>打开GitHub删除main分支稍等5min，再输入 你的GitHub用户名.github.io 为网址即可访问</p>
-</blockquote>
-<p><img src="result.png" alt="result"></p>
-<h2 id="Have-fun"><a href="#Have-fun" class="headerlink" title="Have fun ^_^"></a>Have fun ^_^</h2><p>Congratulation! </p>
-<p>You have been created Hexo environment.</p>
-<p>If you are interested in Hexo theme, please read next blog.</p>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/2021/01/17/在VMware上安装Ubuntu16.04/" data-toggle="tooltip" data-placement="top" title="在VMware上安装Ubuntu16.04">&larr; Previous Post</a>
-          </li>
-          
           
           <li class="next">
-            <a href="/2021/01/12/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
+            <a href="/2021/01/17/基于Ubuntu16.04建立Wordpress的Blog/" data-toggle="tooltip" data-placement="top" title="基于Ubuntu16.04建立Wordpress的Blog">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -552,7 +481,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=windows下通过Github + Hexo的Blog创建&body=Hi,I found this website and thought you might like it https://blog.longdy.xyz/2021/01/13/在Windows下通过Github + Hexo 的Blog创建/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=JAVA快速两个文件中的词-将相同词和词向量存储&body=Hi,I found this website and thought you might like it https://blog.longdy.xyz/2021/06/03/JAVA快速两个文件中的词-将相同词和词向量存储/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -585,7 +514,7 @@
     repo: '',
     owner: '',
     admin: '',
-    id: 'Wed Jan 13 2021 23:53:48 GMT+0800', // Ensure uniqueness and length less than 50
+    id: 'Thu Jun 03 2021 23:50:48 GMT+0800', // Ensure uniqueness and length less than 50
     distractionFreeMode: false, // Facebook-like distraction free mode
     perPage: 10 ,
     pagerDirection: 'last',
@@ -639,7 +568,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#注册Github账号"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">注册Github账号</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Git"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装Git</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#New-repository"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">New repository</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建SSH-Key"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">创建SSH Key</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生成SSH-Key"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">生成SSH Key</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择主题"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">选择主题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加SSH到Github"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">添加SSH到Github</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建本地仓库"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">创建本地仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#从仓库直接上传文件"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">从仓库直接上传文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Node-js（建议下载二进制）"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">安装Node.js（建议下载二进制）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装Hexo"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">安装Hexo</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#本地Blog文件"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">本地Blog文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#发布文章"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">发布文章</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#配置部署Hexo"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">配置部署Hexo</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装hexo-deployer-git"><span class="toc-nav-number">13.1.</span> <span class="toc-nav-text">安装hexo-deployer-git</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改-config-yml"><span class="toc-nav-number">13.2.</span> <span class="toc-nav-text">修改_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#完成部署"><span class="toc-nav-number">13.3.</span> <span class="toc-nav-text">完成部署</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#上传第一个MarkDown文件"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">上传第一个MarkDown文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#最后一步"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">最后一步</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Have-fun"><span class="toc-nav-number">16.</span> <span class="toc-nav-text">Have fun ^_^</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#JAVA快速两个文件中的词-将相同词和词向量存储"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">JAVA快速两个文件中的词-将相同词和词向量存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#目的"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">目的</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#思路"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">思路</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#遇到的问题"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">遇到的问题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#结果"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">结果</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#改进"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">改进</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#源代码"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">源代码</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -661,9 +590,7 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
-            
-            <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+            <a class="tag" href="/tags/#Java文件处理" title="Java文件处理">Java文件处理</a>
             
           </div>
         </section>
