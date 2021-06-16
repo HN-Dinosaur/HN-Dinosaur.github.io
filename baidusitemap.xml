@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.longdy.xyz/2021/06/15/%E5%85%B3%E4%BA%8ESwift5.4%E7%9A%84delegate%E5%A7%94%E6%89%98/</loc>
+    <lastmod>2021-06-16</lastmod>
+  </url>
+  <url>
     <loc>https://blog.longdy.xyz/2021/06/07/%5B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%5D%E5%A0%86%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2021-06-07</lastmod>
   </url>

@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../css/highlight.css">
-<link rel="stylesheet" href="../css/widget.css">
-<link rel="stylesheet" href="../css/rocket.css">
-<link rel="stylesheet" href="../css/signature.css">
-<link rel="stylesheet" href="../css/catalog.css">
-<link rel="stylesheet" href="../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://blog.longdy.xyz/about/">
+  <link rel="canonical" href="https://blog.longdy.xyz/2021/06/15/关于Swift5.4的delegate委托/">
   <title>
     
-    Myself - HN-Dinosaur&#39;s House | Persist&amp;Strive
+    关于Swift5.4的Protocol中的delegate委托 - HN-Dinosaur&#39;s House | Persist&amp;Strive
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -290,8 +290,8 @@
   <!-- CDN: jsdelivr start -->
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('https://cdn.jsdelivr.net/gh/HN-Dinosaur/HN-Dinosaur.github.io/img/scenery/myself.jpg');
+       /*post*/
+        background-image: url('https://cdn.jsdelivr.net/gh/HN-Dinosaur/HN-Dinosaur.github.io/img/header_img/lml.jpg');
       
     }
 
@@ -314,10 +314,44 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Myself</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Keep moving</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#ios" title="ios">ios</a>
+              
+              <a class="tag" href="/tags/#delegate" title="delegate">delegate</a>
+              
+              <a class="tag" href="/tags/#protocol" title="protocol">protocol</a>
+              
+            </div>
+            <h1>关于Swift5.4的Protocol中的delegate委托</h1>
+            <h2 class="subheading">Protocol中的delegate</h2>
+            <span class="meta">
+              Posted by Dinosaur on
+              2021-06-15
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">1</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">226</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
           </div>
           
         </div>
@@ -358,308 +392,267 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-
-      <h2 id="Just-Me"><a href="#Just-Me" class="headerlink" title="Just Me"></a>Just Me</h2><blockquote>
-<p>Just a programmer, not much to say</p>
+        <h1 id="关于Swift5-4的Protocol中的delegate委托"><a href="#关于Swift5-4的Protocol中的delegate委托" class="headerlink" title="关于Swift5.4的Protocol中的delegate委托"></a>关于Swift5.4的Protocol中的delegate委托</h1><blockquote>
+<p> 这个delegate可以理解为一个代理人,此文章指的是外卖骑手</p>
+<p>protocol理解为合同</p>
 </blockquote>
-<h2 id="Contact-me"><a href="#Contact-me" class="headerlink" title="Contact me"></a>Contact me</h2><blockquote>
-<p>Email：<a href="mailto:LL464050079@163.com">LL464050079@163.com</a></p>
-</blockquote>
-<h2 id="Chating-with-me-in-some-questions-of-technology"><a href="#Chating-with-me-in-some-questions-of-technology" class="headerlink" title="Chating with me in some questions of technology"></a>Chating with me in some questions of technology</h2><p><img src="../img/scenery/me.jpg" width="350" alt="me.png.jpg"></img></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">FoodProtocol</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">foodMaterial</span><span class="params">(meterial: String)</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> delegate: <span class="type">FoodProtocol?</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">cook</span><span class="params">(want: String)</span></span>&#123;</span><br><span class="line">        delegate?.foodMaterial(meterial: want)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Deliverman</span>: <span class="title">FoodProtocol</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">foodMaterial</span><span class="params">(meterial: String)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"开始做\(meterial)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> yourself = <span class="type">Person</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"现在没有骑手"</span>)</span><br><span class="line"><span class="comment">//没有骑手，没有食材，做不了</span></span><br><span class="line">yourself.cook(want: <span class="string">"鸡块"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"现在有骑手了"</span>)</span><br><span class="line">yourself.delegate = <span class="type">Deliverman</span>()</span><br><span class="line">yourself.cook(want: <span class="string">"鸡块"</span>)</span><br></pre></td></tr></table></figure>
 
 
-      <!-- 如果开启评论功能 -->
-      
-      <hr>
 
-      
-
-      
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        
-<!-- <h5>VISITORS</h5> -->
-<h5><a href="/">VISITORS</a></h5>
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
+<p>这就像一开始你想做饭，但是你没有食材，var yourself = Person(want: “鸡块”)<br>yourself.cook(want: “鸡块”)，所以你做不了饭。嘿, 你想到你可以上某外卖平台下订单召唤一个骑手(遵守这个订单合同的骑手才能知道你想要买什么玩意儿)进行买菜，yourself.delegate = Deliverman()</p>
+<p>，然后菜到了，你可以开始做饭了yourself.cook(want: “鸡块”)。</p>
 
 
         <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/2021/06/07/[排序算法]堆排序/" data-toggle="tooltip" data-placement="top" title="算法之堆排序">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=关于Swift5.4的Protocol中的delegate委托&body=Hi,I found this website and thought you might like it https://blog.longdy.xyz/2021/06/15/关于Swift5.4的delegate委托/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: '',
+    id: 'Tue Jun 15 2021 23:35:20 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'en'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#关于Swift5-4的Protocol中的delegate委托"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于Swift5.4的Protocol中的delegate委托</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
-
-<section>
-  <!-- no hr -->
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#Hexo" title="Hexo" rel="2">Hexo</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="1">Hexo-Theme-LiveMyLife</a>
-    
-    
-    
-    <a href="/tags/#Windows" title="Windows" rel="1">Windows</a>
-    
-    
-    
-    <a href="/tags/#Ubuntu" title="Ubuntu" rel="2">Ubuntu</a>
-    
-    
-    
-    <a href="/tags/#VMware" title="VMware" rel="1">VMware</a>
-    
-    
-    
-    <a href="/tags/#Wordpress" title="Wordpress" rel="1">Wordpress</a>
-    
-    
-    
-    <a href="/tags/#Java文件处理" title="Java文件处理" rel="1">Java文件处理</a>
-    
-    
-    
-    <a href="/tags/#WWDC" title="WWDC" rel="1">WWDC</a>
-    
-    
-    
-    <a href="/tags/#堆排序" title="堆排序" rel="1">堆排序</a>
-    
-    
-    
-    <a href="/tags/#算法" title="算法" rel="1">算法</a>
-    
-    
-    
-    <a href="/tags/#ios" title="ios" rel="1">ios</a>
-    
-    
-    
-    <a href="/tags/#delegate" title="delegate" rel="1">delegate</a>
-    
-    
-    
-    <a href="/tags/#protocol" title="protocol" rel="1">protocol</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/roguerabbit.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>To be a real iOSer</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/HN-Dinosaur">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/HN-Dinosaur">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
         
-<!-- <h5>RECENT POSTS</h5> -->
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../2021/06/15/%E5%85%B3%E4%BA%8ESwift5.4%E7%9A%84delegate%E5%A7%94%E6%89%98/">
-      <li>关于Swift5.4的Protocol中的delegate委托</li>
-    </a>
-    
-    <a href="../2021/06/07/%5B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%5D%E5%A0%86%E6%8E%92%E5%BA%8F/">
-      <li>算法之堆排序</li>
-    </a>
-    
-    <a href="../2021/06/04/2022WWDC%E4%BD%9C%E5%93%81%E5%88%9D%E6%83%B3%E6%B3%95/">
-      <li>2022WWDC作品初想法</li>
-    </a>
-    
-    <a href="../2021/06/03/JAVA%E5%BF%AB%E9%80%9F%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E8%AF%8D-%E5%B0%86%E7%9B%B8%E5%90%8C%E8%AF%8D%E5%92%8C%E8%AF%8D%E5%90%91%E9%87%8F%E5%AD%98%E5%82%A8/">
-      <li>JAVA快速两个文件中的词-将相同词和词向量存储</li>
-    </a>
-    
-    <a href="../2021/01/17/%E5%9F%BA%E4%BA%8EUbuntu16.04%E5%BB%BA%E7%AB%8BWordpress%E7%9A%84Blog/">
-      <li>基于Ubuntu16.04建立Wordpress的Blog</li>
-    </a>
-    
-  </ul>
-</div>
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#ios" title="ios">ios</a>
+            
+            <a class="tag" href="/tags/#delegate" title="delegate">delegate</a>
+            
+            <a class="tag" href="/tags/#protocol" title="protocol">protocol</a>
+            
+          </div>
+        </section>
+        
 
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<!-- <h5>FRIENDS</h5> -->
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://blog.longdy.xyz/" target="_blank">Dinosaur</a></li>
-  
-  <li><a href="http://Pjhubs.com" target="_blank">Pjhubs</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
-        <hr>
-    
         
-    <!-- <h5>ARCHIVES</h5> -->
-    <h5><a href="/archives/">ARCHIVES</a></h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2021/01/">一月 2021</a><span class="archive-list-count">4</span></li></ul>
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://blog.longdy.xyz/" target="_blank">Dinosaur</a>
+          </li>
+          
+          <li>
+            <a href="http://Pjhubs.com" target="_blank">Pjhubs</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
     </div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<!-- <h5>categories</h5> -->
-<h5><a href="/categories/">CATEGORIES</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-    <a href="/categories/#Hexo">
-      <li>Hexo</li>
-    </a>
-    
-    <a href="/categories/#VMware build Ubuntu16.04">
-      <li>VMware build Ubuntu16.04</li>
-    </a>
-    
-    <a href="/categories/#Wordpress">
-      <li>Wordpress</li>
-    </a>
-    
-    <a href="/categories/#Java文件处理">
-      <li>Java文件处理</li>
-    </a>
-    
-    <a href="/categories/#WWDC">
-      <li>WWDC</li>
-    </a>
-    
-    <a href="/categories/#堆排序">
-      <li>堆排序</li>
-    </a>
-    
-    <a href="/categories/#算法">
-      <li>算法</li>
-    </a>
-    
-    <a href="/categories/#ios">
-      <li>ios</li>
-    </a>
-    
-    <a href="/categories/#delegate">
-      <li>delegate</li>
-    </a>
-    
-    <a href="/categories/#protocol">
-      <li>protocol</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-    
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
@@ -767,7 +760,7 @@
     let jsdelivr = "https://cdn.jsdelivr.net/gh/";
     let gh = "HN-Dinosaur";
     let ghPages = gh + ".github.io";
-    let pagePath = "about/index.html";
+    let pagePath = "2021/06/15/关于Swift5.4的delegate委托/";
     let jsdelivrurl;
     if (pagePath.indexOf("index.html") != -1) {
       jsdelivrurl = jsdelivr + gh + "/" + ghPages;
