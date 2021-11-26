@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://blog.longdy.xyz/2021/10/17/iOS学习(6)/">
+  <link rel="canonical" href="https://blog.longdy.xyz/2021/11/26/iOS本地存储(4)/">
   <title>
     
-    iOS学习(6) - HN-Dinosaur&#39;s House | Persist&amp;Strive
+    iOS本地存储(4) - HN-Dinosaur&#39;s House | Persist&amp;Strive
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -318,11 +318,11 @@
             <div class="tags">
               
             </div>
-            <h1>iOS学习(6)</h1>
+            <h1>iOS本地存储(4)</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by Dinosaur on
-              2021-10-17
+              2021-11-26
             </span>
 
 
@@ -330,11 +330,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">5</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">55</span> In Total
+              Words <span class="post-count">1.2k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -394,11 +394,56 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="iOS学习"><a href="#iOS学习" class="headerlink" title="iOS学习"></a>iOS学习</h1><p>先撸一波官方文档（嗷是这个意思，有这么些东西，这些东西能干什么）</p>
-<p>看一波示例代码（哦！是这样）</p>
-<p>开始造船</p>
-<p>（遇到问题）Google + stack overflow</p>
-<p>完工！</p>
+        <h1 id="iOS本地存储（4）"><a href="#iOS本地存储（4）" class="headerlink" title="iOS本地存储（4）"></a>iOS本地存储（4）</h1><p>​    这边分享三种存储方式</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="type">FileManager</span>.<span class="keyword">default</span>.urls(<span class="keyword">for</span>: .documentDirectory, <span class="keyword">in</span>: .userDomainMask))</span><br><span class="line"><span class="comment">//获取本地存储文件的位置信息</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="UserDefault本地存储（轻量级本地存储"><a href="#UserDefault本地存储（轻量级本地存储" class="headerlink" title="UserDefault本地存储（轻量级本地存储)"></a>UserDefault本地存储（轻量级本地存储)</h2><p>遵循协议Codable</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Info</span>:<span class="title">Codable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> token: <span class="type">String</span> = <span class="string">""</span></span><br><span class="line">    <span class="keyword">var</span> validity: <span class="type">String</span> = <span class="string">""</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    本地以key，value形式存储</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">saveData</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">do</span>&#123;</span><br><span class="line">     <span class="comment">//因为存储的内容不是Swift的基本类型，所以首先先编码</span></span><br><span class="line">       <span class="keyword">let</span> data = <span class="keyword">try</span> <span class="type">JSONEncoder</span>().encode(todos)</span><br><span class="line">     <span class="comment">//再进行存储</span></span><br><span class="line">      <span class="type">UserDefaults</span>.standard.<span class="keyword">set</span>(data, forKey: <span class="string">"todos"</span>)</span><br><span class="line">   &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">     <span class="built_in">print</span>(error)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        取数据</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">deCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">//从存储文件中，将编码后的数据拿到，Optional的数据</span></span><br><span class="line">       <span class="keyword">if</span> <span class="keyword">let</span> data = <span class="type">UserDefaults</span>.standard.data(forKey: <span class="string">"todos"</span>)&#123;</span><br><span class="line">           <span class="keyword">do</span>&#123;</span><br><span class="line">             <span class="comment">//将拿到的数据进行解码，[Tode].self固定，解码成Todo对象</span></span><br><span class="line">               todos = <span class="keyword">try</span> <span class="type">JSONDecoder</span>().decode([<span class="type">Todo</span>].<span class="keyword">self</span>, from: data)</span><br><span class="line">           &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">               <span class="built_in">print</span>(error)</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    选择软件datum free查看数据</p>
+<h2 id="Core-Data（框架）存储"><a href="#Core-Data（框架）存储" class="headerlink" title="Core Data（框架）存储"></a>Core Data（框架）存储</h2><pre><code>Core Data本身并不是数据库，它是一个拥有多种功能的框架，其中一个重要的功能就是把应用程序同数据库之间的交互过程自动化了。有了Core Data框架以后，我们无须编写Objective-C代码，又可以是使用关系型数据库。因为Core Data会在底层自动给我们生成应该最佳优化过的SQL语句。</code></pre><blockquote>
+<p>首先在建立项目文件时，就先选择Core data</p>
+</blockquote>
+<p>​    然后在AppDelegate下会生成如下代码</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillTerminate</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.saveContext()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// MARK: - Core Data stack</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> persistentContainer: <span class="type">NSPersistentContainer</span> = &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         The persistent container for the application. This implementation</span></span><br><span class="line"><span class="comment">         creates and returns a container, having loaded the store for the</span></span><br><span class="line"><span class="comment">         application to it. This property is optional since there are legitimate</span></span><br><span class="line"><span class="comment">         error conditions that could cause the creation of the store to fail.</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">      <span class="comment">//改成自己的数据库名字name</span></span><br><span class="line">        <span class="keyword">let</span> container = <span class="type">NSPersistentContainer</span>(name: <span class="string">"Todo"</span>)</span><br><span class="line">        container.loadPersistentStores(completionHandler: &#123; (storeDescription, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error <span class="keyword">as</span> <span class="type">NSError?</span> &#123;</span><br><span class="line">                <span class="comment">// Replace this implementation with code to handle the error appropriately.</span></span><br><span class="line">                <span class="comment">// fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</span></span><br><span class="line">                 </span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                 Typical reasons for an error here include:</span></span><br><span class="line"><span class="comment">                 * The parent directory does not exist, cannot be created, or disallows writing.</span></span><br><span class="line"><span class="comment">                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.</span></span><br><span class="line"><span class="comment">                 * The device is out of space.</span></span><br><span class="line"><span class="comment">                 * The store could not be migrated to the current model version.</span></span><br><span class="line"><span class="comment">                 Check the error message to determine what the actual problem was.</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">                <span class="built_in">fatalError</span>(<span class="string">"Unresolved error \(error), \(error.userInfo)"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> container</span><br><span class="line">    &#125;()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// MARK: - Core Data Saving support</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">saveContext</span> <span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> context = persistentContainer.viewContext</span><br><span class="line">        <span class="keyword">if</span> context.hasChanges &#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> context.save()</span><br><span class="line">            &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">                <span class="comment">// Replace this implementation with code to handle the error appropriately.</span></span><br><span class="line">                <span class="comment">// fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.</span></span><br><span class="line">                <span class="keyword">let</span> nserror = error <span class="keyword">as</span> <span class="type">NSError</span></span><br><span class="line">                <span class="built_in">fatalError</span>(<span class="string">"Unresolved error \(nserror), \(nserror.userInfo)"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 大概的意思就是如果用到Core data的话，每次程序Terminal后先判断数据库中的数据是否改变，如果改变了就更新数据库中的数据</p>
+</blockquote>
+<p>先点击左下角的Add Entity(表)  然后创建属性和值，最后存储在数据库中的数据，每一行是一个对象，所有的行加起来就是数据库了</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//改用Core data后  对象的实例化也要发生改变 先获取NSManagedObjectContext</span></span><br><span class="line">    <span class="keyword">let</span> context = (<span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>! <span class="type">AppDelegate</span>).persistentContainer.viewContext</span><br><span class="line"><span class="comment">//通过获取的NSManagedObjectContext来实例化Todo对象</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">didAdd</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">let</span> todo = <span class="type">Todo</span>(context: context)</span><br><span class="line">        todo.name = name</span><br><span class="line">        todo.checked = <span class="literal">false</span></span><br><span class="line">        <span class="comment">//先改变数据，再改变视图</span></span><br><span class="line">        todos.append(todo)</span><br><span class="line">  ....................</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">saveData</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> context.save()</span><br><span class="line">  &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 删改查</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查  约等于select * from Todo     </span></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">      <span class="comment">//数据库表fetchRequest</span></span><br><span class="line">      todos = <span class="keyword">try</span> context.fetch(<span class="type">Todo</span>.fetchRequest())</span><br><span class="line">        &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">            <span class="built_in">print</span>(error)</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//删除  先删除内存里的  再删除数组里的</span></span><br><span class="line">      context.delete(todos[indexPath.row])</span><br><span class="line">      todos.remove(at: indexPath.row)</span><br><span class="line"><span class="comment">//修改只要使用上面的saveData就行</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 用datum free软件可以查看存储的文件容器中的sqlite文件，就是core data存储的文件</p>
+</blockquote>
+<h2 id="Realm第三方库存储-移动端数据库"><a href="#Realm第三方库存储-移动端数据库" class="headerlink" title="Realm第三方库存储(移动端数据库)"></a>Realm第三方库存储(移动端数据库)</h2><p>那肯定先用Cocoapods下载第三方库啦</p>
+<p>通过</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cd xxx</span></span><br><span class="line"><span class="comment">//pod init</span></span><br><span class="line"><span class="comment">//  pod 'RealmSwift', '~&gt;10'</span></span><br><span class="line"><span class="comment">//pod install</span></span><br><span class="line"><span class="comment">//打开新文件</span></span><br><span class="line"><span class="comment">//Model层</span></span><br><span class="line"><span class="keyword">import</span> RealmSwift</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>: <span class="title">Object</span> </span>&#123;</span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> name = <span class="string">""</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> age = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为dynamic 是数据实时更新的</span></span><br><span class="line"><span class="comment">//objc是因为底层是OC的语法</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>AppDelegate</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: <span class="keyword">Any</span>]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">       <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">  <span class="comment">//查看文件位置  配合软件MongoDB Realm Studio看内容</span></span><br><span class="line">       <span class="built_in">print</span>(<span class="type">Realm</span>.<span class="type">Configuration</span>.defaultConfiguration.fileURL!)</span><br><span class="line">       <span class="keyword">do</span>&#123;</span><br><span class="line">           <span class="comment">//创建数据库</span></span><br><span class="line">           <span class="keyword">let</span> realm = <span class="keyword">try</span>! <span class="type">Realm</span>()</span><br><span class="line">           <span class="keyword">let</span> user = <span class="type">User</span>()</span><br><span class="line">           user.name = <span class="string">"搬砖"</span></span><br><span class="line">           user.checked = <span class="literal">false</span></span><br><span class="line">           <span class="comment">//将数据写入数据库</span></span><br><span class="line">           <span class="keyword">try</span>! realm.write &#123;</span><br><span class="line">               realm.add(user)</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">           <span class="built_in">print</span>(error)</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增</span></span><br><span class="line"><span class="comment">//先定义全局变量数据库</span></span><br><span class="line"><span class="keyword">let</span> realm = <span class="keyword">try</span>! realm()</span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="comment">//添加数据库对象</span></span><br><span class="line">  <span class="keyword">try</span> realm.write(</span><br><span class="line">    realm.add(todo)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">  <span class="built_in">print</span>(error)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删</span></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="comment">//添加数据库对象</span></span><br><span class="line">  <span class="keyword">try</span> realm.write(</span><br><span class="line">    realm.delete(todos![indexPath.row])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">  <span class="built_in">print</span>(error)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//改</span></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="comment">//添加数据库对象</span></span><br><span class="line">  <span class="keyword">try</span> realm.write&#123;</span><br><span class="line">    todos![indexPath.row].name = name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">catch</span>&#123;</span><br><span class="line">  <span class="built_in">print</span>(error)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//查  全部</span></span><br><span class="line">todos = realm.object(<span class="type">Todo</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="comment">//部分+排序</span></span><br><span class="line">todos = realm.objects(<span class="type">Todo</span>.<span class="keyword">self</span>).<span class="built_in">filter</span>(<span class="string">"name CONTAINS %@"</span>, searchBar.text!).sorted(byKeyPath: <span class="string">"createTime"</span>, ascending: <span class="literal">false</span>)</span><br><span class="line">        tableView.reloadData()</span><br></pre></td></tr></table></figure>
+
+
+
 
 
         <hr>
@@ -406,12 +451,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/2021/10/17/iOS中的ARC内存管理(8)/" data-toggle="tooltip" data-placement="top" title="iOS中的ARC内存管理(8)">&larr; Previous Post</a>
+            <a href="/2021/11/26/iOS的Git版本管理工具(9)/" data-toggle="tooltip" data-placement="top" title="iOS的Git版本管理工具(9)">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/2021/10/17/Cocoapods引入第三方包(5)/" data-toggle="tooltip" data-placement="top" title="Cocoapods引入第三方包(5)">Next Post &rarr;</a>
+            <a href="/2021/11/26/本地存储CoreData续(11)/" data-toggle="tooltip" data-placement="top" title="本地存储CoreData续(11)">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -454,7 +499,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=iOS学习(6)&body=Hi,I found this website and thought you might like it https://blog.longdy.xyz/2021/10/17/iOS学习(6)/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=iOS本地存储(4)&body=Hi,I found this website and thought you might like it https://blog.longdy.xyz/2021/11/26/iOS本地存储(4)/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -487,7 +532,7 @@
     repo: '',
     owner: '',
     admin: '',
-    id: 'Sun Oct 17 2021 22:55:26 GMT+0800', // Ensure uniqueness and length less than 50
+    id: 'Fri Nov 26 2021 16:47:50 GMT+0800', // Ensure uniqueness and length less than 50
     distractionFreeMode: false, // Facebook-like distraction free mode
     perPage: 10 ,
     pagerDirection: 'last',
@@ -736,7 +781,7 @@
     let jsdelivr = "https://cdn.jsdelivr.net/gh/";
     let gh = "HN-Dinosaur";
     let ghPages = gh + ".github.io";
-    let pagePath = "2021/10/17/iOS学习(6)/";
+    let pagePath = "2021/11/26/iOS本地存储(4)/";
     let jsdelivrurl;
     if (pagePath.indexOf("index.html") != -1) {
       jsdelivrurl = jsdelivr + gh + "/" + ghPages;

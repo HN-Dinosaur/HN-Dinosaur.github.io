@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.longdy.xyz/2021/11/26/iOS%E4%B8%AD%E7%9A%84GCD(13)/</loc>
+    <lastmod>2021-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.longdy.xyz/2021/11/26/ViewController%E7%9A%84Life%20Circle(12)/</loc>
+    <lastmod>2021-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.longdy.xyz/2021/11/26/%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8CoreData%E7%BB%AD(11)/</loc>
+    <lastmod>2021-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.longdy.xyz/2021/11/26/iOS%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8(4)/</loc>
+    <lastmod>2021-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.longdy.xyz/2021/11/26/iOS%E7%9A%84Git%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7(9)/</loc>
+    <lastmod>2021-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.longdy.xyz/2021/11/26/iOS%E7%9A%84%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6(10)/</loc>
+    <lastmod>2021-11-16</lastmod>
+  </url>
+  <url>
     <loc>https://blog.longdy.xyz/2021/10/17/iOS%E4%B8%AD%E7%9A%84ARC%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86(8)/</loc>
     <lastmod>2021-10-15</lastmod>
   </url>
@@ -11,10 +35,6 @@
   <url>
     <loc>https://blog.longdy.xyz/2021/10/17/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     <lastmod>2021-09-25</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.longdy.xyz/2021/10/17/iOS%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8(4)/</loc>
-    <lastmod>2021-09-11</lastmod>
   </url>
   <url>
     <loc>https://blog.longdy.xyz/2021/10/17/macOS%E7%BB%88%E7%AB%AF%E7%BF%BB%E5%A2%99(7)/</loc>
